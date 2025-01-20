@@ -1,0 +1,31 @@
+{
+    "name": "hawkiq/admlte",
+    "description": "AdminLTE v4 integration for Laravel",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hawkiq\\Admlte\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hawkiq\\Admlte\\AdmLTEServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "hawkiq",
+            "email": "me@osama.app"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "almasaeed2010/adminlte": "dev-master",
+        "twbs/bootstrap": "5.3.3",
+        "components/jquery": "dev-master",
+        "components/font-awesome": "dev-master"
+    }
+}
