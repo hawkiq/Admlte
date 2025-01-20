@@ -1,5 +1,7 @@
 # Hawkiq AdmLTE Package
 
+-Warning : This Package is at very early phase of development using it in production might not a good idea use at your own risk.
+
 Hawkiq AdmLTE is a Laravel package designed for seamless integration of the AdminLTE v4 beta template, providing a robust foundation for admin dashboards. This package simplifies the installation, configuration, and usage of AdminLTE with Bootstrap 5 and related components.
 
 ---
@@ -32,12 +34,6 @@ This will:
 
 Ensure the required frontend dependencies are installed:
 
-#### Install Bootstrap and jQuery via NPM
-```bash
-npm install
-```
-
-#### Or use the included assets
 Run the custom install command to copy AdminLTE, Bootstrap, and jQuery assets to the public directory:
 ```bash
 php artisan admlte:install
@@ -62,18 +58,23 @@ Example `config/admlte.php`:
 return [
     'sidebar' => [
         [
-            'text' => 'Dashboard',
-            'route' => 'dashboard',
-            'icon' => 'fas fa-tachometer-alt',
-            'active' => true,
-            'submenu' => [],
-            'permission' => 'view-dashboard',
+            'type' => 'header',
+            'text' => 'main.navigation',
+            'permission' => null,
         ],
         [
-            'text' => 'Users',
-            'route' => 'users.index',
-            'icon' => 'fas fa-users',
-            'permission' => 'manage-users',
+            'type' => 'link',
+            'text' => 'main.dashboard',
+            'route' => 'test1',
+            'icon' => 'fas fa-home',
+            'permission' => null,
+        ],
+          [
+            'type' => 'link',
+            'text' => 'main.dashboard',
+            'route' => 'test1',
+            'icon' => 'fas fa-home',
+            'permission' => null,
         ],
     ],
 ];
@@ -87,11 +88,9 @@ return [
 To use the package's layout, extend the base layout in your Blade files:
 
 ```blade
-@extends('admlte::layouts.master')
+@extends('admlte::page')
 ```
 
-### Add Sidebar and Navbar Components
-comming soon
 
 ### Customizing Views
 If you need to customize views, edit the published files located in:
