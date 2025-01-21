@@ -41,26 +41,41 @@ class InstallCommand extends Command
      */
     protected function publishAuthViews()
     {
-        $this->info('Publishing AdmLTE auth views...');
+        $this->info('Modifying Laravel auth views to use AdmLTE templates...');
 
-        // Define paths
-        $authViewsSource = __DIR__ . '/../resources/views/auth';
         $authViewsDestination = resource_path('views/auth');
 
-        // Check if the source directory exists
-        if (!File::isDirectory($authViewsSource)) {
-            $this->error('AdmLTE auth views not found in the package.');
+        $viewsToModify = [
+            'login.blade.php',
+            'register.blade.php',
+            'passwords/email.blade.php',
+            'passwords/reset.blade.php',
+        ];
+
+        if (!File::isDirectory($authViewsDestination)) {
+            $this->error('Default Laravel auth views not found.');
             return;
         }
 
-        // Delete existing auth views
-        if (File::isDirectory($authViewsDestination)) {
-            File::deleteDirectory($authViewsDestination);
+        $backupPath = storage_path('backups/auth_views_' . date('Ymd_His'));
+        File::copyDirectory($authViewsDestination, $backupPath);
+        $this->info('Backup of existing auth views created at: ' . $backupPath);
+
+        foreach ($viewsToModify as $view) {
+            $viewPath = $authViewsDestination . '/' . $view;
+
+            if (!File::exists($viewPath)) {
+                $this->warn("View not found: {$view}");
+                continue;
+            }
+
+            $content = "@extends('admlte::auth." . str_replace('.blade.php', '', $view) . "')\n";
+            File::put($viewPath, $content);
+
+            $this->info("Updated view: {$view}");
         }
 
-        // Copy new auth views
-        File::copyDirectory($authViewsSource, $authViewsDestination);
-        $this->info('AdmLTE auth views published and replaced successfully.');
+        $this->info('Laravel auth views updated to use AdmLTE templates.');
     }
 
     /**
