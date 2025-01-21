@@ -1,7 +1,5 @@
 <?php
 
-use function Ramsey\Uuid\v1;
-
 return [
 
     /*
@@ -16,6 +14,7 @@ return [
 
     'title' => 'Home',
     'title_prefix' => 'My Admin | ',
+    'website_name' => 'OsaMa Soft',
 
 
     /*
@@ -65,7 +64,6 @@ return [
     'register_url' => 'register',
     'password_reset_url' => false,
     'password_email_url' => false,
-    'profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -90,6 +88,10 @@ return [
     |
     */
 
+    'auth_card_color' => 'card-success',
+    'auth_card_fill' => false,
+    'auth_card_fill_class' => '', // to make it work auth_card_fill should be true // text-bg-primary
+    'auth_card_btn_color' => 'btn-outline-success',
     'data_bs_theme' => 'dark',
     'classes_sidebar' => 'bg-body-secondary shadow-lg',
 

@@ -56,7 +56,8 @@
 <!--end::Head-->
 <!--begin::Body-->
 
-<body class="sidebar-expand-lg sidebar-mini bg-body-tertiary">
+<body
+    class="{{ isset($auth_type) && $auth_type == 'login' ? 'login-page bg-secondary' : 'sidebar-expand-lg sidebar-mini' }} bg-body-tertiary">
 
     @yield('body')
 

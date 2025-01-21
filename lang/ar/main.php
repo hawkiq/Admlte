@@ -18,5 +18,21 @@ return [
     'another_link' => 'رابط اخر',
     'contact' => 'للاتصال',
     'log_out' => 'تسجيل الخروج',
+    //Login Page
+    'email' => 'البريد الالكتروني',
+    'password' => 'كلمة المرور',
+    'sign_in_hint' => 'قم بتسجيل الدخول لبدء الجلسة',
+    'remember_me' => 'تذكرني',
+    'sign_in' => 'تسجيل الدخول',
+    'forgot_password' => 'نسيت كلمة المرور ؟',
+    'register' => 'تسجيل',
+    // Register Page
+    'register_hint' => 'تسجيل عضوية جديدة',
+    'full_name' => 'الأسم الكامل',
+    'password_confirmation' => 'تأكيد كلمة المرور',
+    'already_signed' => 'لدي عضوية بالفعل',
+    // Forgot Password
+    'forgot_password_hint' => 'هل نسيت كلمة المرور؟ لا مشكلة. فقط أخبرنا بعنوان بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور الذي سيمكنك من اختيار كلمة مرور جديدة.',
+    'email_password' => 'أرسل رابط إعادة تعيين كلمة المرور',
 
 ];
