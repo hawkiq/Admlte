@@ -3,7 +3,7 @@
 namespace Hawkiq\Admlte;
 
 use Illuminate\Support\ServiceProvider;
-use Hawkiq\AdmLTE\Commands\InstallCommand;
+use Hawkiq\Admlte\Commands\InstallCommand;
 
 class AdmLTEServiceProvider extends ServiceProvider
 {
