@@ -209,7 +209,6 @@ return [
             'text' => 'main.dashboard',
             'route' => 'dashboard',
             'icon' => 'fas fa-home',
-            'active' => 'dashboard.*',
             'permission' => null,
         ],
         [
@@ -236,7 +235,6 @@ return [
             'text' => 'main.another_link',
             'route' => 'dashboard',
             'icon' => 'fas fa-link',
-            'active' => 'dashboard.*',
             'permission' => null,
         ],
     ],
@@ -250,7 +248,6 @@ return [
                 'target' => '_blank',
                 'icon' => 'fas fa-home',
                 'icon_color' => 'danger',
-                'active' => 'dashboard.*',
                 'label' => 'label',
                 'label_color' => 'warning',
                 'submenu' => [],
