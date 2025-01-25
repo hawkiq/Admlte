@@ -301,4 +301,17 @@ return [
     */
 
     'vite' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Filament Assets ( Experimental )
+    |--------------------------------------------------------------------------
+    |
+    | I've tried to make this package can run anything without any problems.
+    | So I tried to implement Filament as study case to make it work, you should
+    | set vite to true then continue with Filament installations.
+    |
+    */
+
+    'filament' => false,
 ];

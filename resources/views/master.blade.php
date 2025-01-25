@@ -38,6 +38,10 @@
         @include('admlte::partials.favicons')
     @endif
 
+    @if (config('admlte.filament'))
+        <!-- Filament Styles -->
+        @filamentStyles
+    @endif
 
     @if (config('admlte.vite'))
         @vite('resources/css/app.css')
@@ -66,6 +70,11 @@
     class="{{ isset($auth_type) && $auth_type == 'login' ? 'login-page bg-secondary' : 'sidebar-expand-lg sidebar-mini' }} bg-body-tertiary">
 
     @yield('body')
+
+    @if (config('admlte.filament'))
+        <!-- Filament Scripts -->
+        @filamentScripts
+    @endif
 
     @if (config('admlte.vite'))
         @vite('resources/js/app.js')
