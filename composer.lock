@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6786affd8bf5ba227a963ee97b1cc458",
+    "content-hash": "e006b3e56968e3061e68af6e40432b99",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColorlibHQ/AdminLTE.git",
-                "reference": "bcb198dd13a52d9fe1ab9d05c58f950bfc3d4db3"
+                "reference": "199ca8a765c1ca3cc6e79223d7e8c95841e38702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/bcb198dd13a52d9fe1ab9d05c58f950bfc3d4db3",
-                "reference": "bcb198dd13a52d9fe1ab9d05c58f950bfc3d4db3",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/199ca8a765c1ca3cc6e79223d7e8c95841e38702",
+                "reference": "199ca8a765c1ca3cc6e79223d7e8c95841e38702",
                 "shasum": ""
             },
             "default-branch": true,
@@ -58,11 +58,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-24T09:29:28+00:00"
+            "time": "2025-01-24T12:06:55+00:00"
         },
         {
             "name": "components/font-awesome",
-            "version": "dev-master",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/font-awesome.git",
@@ -74,7 +74,6 @@
                 "reference": "399200378d29bacb524c0e19318ea5ff5d74aa7f",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "component",
             "extra": {
                 "component": {
@@ -102,7 +101,7 @@
         },
         {
             "name": "components/jquery",
-            "version": "dev-master",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
@@ -114,7 +113,6 @@
                 "reference": "8edc7785239bb8c2ad2b83302b856a1d61de60e7",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "component",
             "extra": {
                 "component": {
@@ -202,15 +200,21 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "almasaeed2010/adminlte",
+            "version": "9999999-dev",
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "almasaeed2010/adminlte": 20,
-        "components/jquery": 20
+        "almasaeed2010/adminlte": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hawkiq\AdmLTE\Commands;
+namespace Hawkiq\Admlte\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

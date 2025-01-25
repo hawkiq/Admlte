@@ -1,6 +1,6 @@
 <?php
 
-namespace Hawkiq\AdmLTE;
+namespace Hawkiq\Admlte;
 
 use Illuminate\Support\ServiceProvider;
 use Hawkiq\AdmLTE\Commands\InstallCommand;
