@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    dir="{{ in_array(app()->getLocale(), ['ar', 'he']) ? 'rtl' : 'ltr' }}">
+    dir="{{ in_array(app()->getLocale(), config('admlte.rtl_languages')) ? 'rtl' : 'ltr' }}">
 <!--begin::Head-->
 
 <head>

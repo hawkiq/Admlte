@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}" />
 <!--end::Third Party Plugin(FontAwesome Icons)-->
 <!--begin::Required Plugin(AdminLTE)-->
-@if (in_array(app()->getLocale(), ['ar', 'he']))
+@if (in_array(app()->getLocale(), config('admlte.rtl_languages')))
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/adminlte.rtl.min.css') }}" />
 @else
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/adminlte.min.css') }}" />

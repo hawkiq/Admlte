@@ -16,6 +16,32 @@ return [
     'title_prefix' => 'My Admin | ',
     'website_name' => 'OsaMa Soft',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Right to left Languages
+    |--------------------------------------------------------------------------
+    |
+    | to make dashboard take the right direction put a list of rtl languages here
+    |
+    |
+    */
+
+    'rtl_languages' => [
+        'ar',  // Arabic
+        'he',  // Hebrew
+        'fa',  // Persian (Farsi)
+        'ur',  // Urdu
+        'ps',  // Pashto
+        'syr', // Syriac
+        'prs', // Dari (Afghanistan)
+        'sd',  // Sindhi
+        'dv',  // Dhivehi (Maldives)
+        'ku',  // Kurdish (Sorani)
+        'yi',  // Yiddish
+        'tg',  // Tajik
+        'jv',  // Javanese (with some RTL usage)
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
