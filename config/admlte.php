@@ -181,7 +181,7 @@ return [
         [
             'type' => 'link',
             'text' => 'main.dashboard',
-            'route' => 'test1',
+            'route' => 'dashboard',
             'icon' => 'fas fa-home',
             'active' => 'dashboard.*',
             'permission' => null,
@@ -208,7 +208,7 @@ return [
         [
             'type' => 'link',
             'text' => 'main.another_link',
-            'route' => 'test2',
+            'route' => 'dashboard',
             'icon' => 'fas fa-link',
             'active' => 'dashboard.*',
             'permission' => null,
@@ -276,4 +276,16 @@ return [
     */
 
     'livewire' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | jquery
+    |--------------------------------------------------------------------------
+    |
+    | Since Bootstrap 5 can works without jquery So I made including it Optional.
+    |
+    |
+    */
+
+    'jquery' => false,
 ];
