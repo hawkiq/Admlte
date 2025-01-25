@@ -31,12 +31,18 @@
         </style>
     @endif
     <!--end::Fonts-->
-    @include('admlte::partials.styles')
 
     @if (config('admlte.use_ico'))
         <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.ico') }}" />
     @elseif(config('admlte.use_full'))
         @include('admlte::partials.favicons')
+    @endif
+
+
+    @if (config('admlte.vite'))
+        @vite('resources/css/app.css')
+    @else
+        @include('admlte::partials.styles')
     @endif
 
     <!-- Extra Configured Plugins Stylesheets -->
@@ -61,7 +67,11 @@
 
     @yield('body')
 
-    @include('admlte::partials.scripts')
+    @if (config('admlte.vite'))
+        @vite('resources/js/app.js')
+    @else
+        @include('admlte::partials.scripts')
+    @endif
 
 
     @if (config('admlte.livewire'))

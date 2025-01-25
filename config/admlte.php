@@ -288,4 +288,17 @@ return [
     */
 
     'jquery' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Assets Bundling ( Experimental )
+    |--------------------------------------------------------------------------
+    |
+    | Default behavouir is assets from public vendor as files But If you prefer.
+    | Using vite bundling you can mark this option as true.notice this is just 
+    | Test feature done during testing filament So it might works as you desire .
+    |
+    */
+
+    'vite' => false,
 ];
