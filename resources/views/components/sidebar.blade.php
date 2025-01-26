@@ -28,9 +28,9 @@
                         @include('admlte::partials.sidebar-item', ['item' => $item])
                     @else
                         @if (config('admlte.permission_system') === 'laratrust')
-                            @permission($item['permission'])
+                            @if (\Laratrust::hasPermission($item['permission']))
                                 @include('admlte::partials.sidebar-item', ['item' => $item])
-                            @endpermission
+                            @endif
                         @else
                             @if (Gate::allows($item['permission']))
                                 @include('admlte::partials.sidebar-item', ['item' => $item])

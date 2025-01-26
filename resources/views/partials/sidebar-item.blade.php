@@ -1,6 +1,6 @@
-@if ($item['type'] === 'header')
+@if (isset($item['type']) && $item['type'] === 'header')
     <li class="nav-header">{{ __('admlte::' . $item['text'], [], 'admlte') }}</li>
-@elseif ($item['type'] === 'link')
+@else
     <li class="nav-item {{ isset($item['submenu']) ? 'has-treeview' : '' }}">
         <a href="{{ $item['route'] ? route($item['route']) : '#' }}"
             class="nav-link {{ request()->routeIs($item['route']) ? 'active' : '' }}"
@@ -16,14 +16,19 @@
         @if (isset($item['submenu']))
             <ul class="nav nav-treeview">
                 @foreach ($item['submenu'] as $subItem)
-                    <li class="nav-item">
-                        <a href="{{ $subItem['route'] ? route($subItem['route']) : '#' }}"
-                            class="nav-link {{ request()->routeIs($subItem['route']) ? 'active' : '' }}"
-                            @if (config('admlte.livewire')) wire:navigate @endif>
-                            <i class="nav-icon {{ $subItem['icon'] }}"></i>
-                            <p>{{ __('admlte::' . $subItem['text']) }}</p>
-                        </a>
-                    </li>
+                    @if (empty($subItem['permission']))
+                        @include('admlte::partials.sidebar-item', ['item' => $subItem])
+                    @else
+                        @if (config('admlte.permission_system') === 'laratrust')
+                            @if (\Laratrust::hasPermission($subItem['permission']))
+                                @include('admlte::partials.sidebar-item', ['item' => $subItem])
+                            @endif
+                        @else
+                            @if (Gate::allows($subItem['permission']))
+                                @include('admlte::partials.sidebar-item', ['item' => $subItem])
+                            @endif
+                        @endif
+                    @endif
                 @endforeach
             </ul>
         @endif
