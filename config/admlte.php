@@ -205,14 +205,12 @@ return [
             'permission' => null,
         ],
         [
-            'type' => 'link',
             'text' => 'main.dashboard',
             'route' => 'dashboard',
             'icon' => 'fas fa-home',
             'permission' => null,
         ],
         [
-            'type' => 'link',
             'text' => 'main.level1',
             'route' => null,
             'icon' => 'fas fa-circle-fill',
@@ -231,7 +229,6 @@ return [
             'permission' => null,
         ],
         [
-            'type' => 'link',
             'text' => 'main.another_link',
             'route' => 'dashboard',
             'icon' => 'fas fa-link',
