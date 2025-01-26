@@ -84,6 +84,7 @@ return [
     |
     */
 
+    'use_route_url' => false,
     'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
@@ -205,24 +206,21 @@ return [
             'permission' => null,
         ],
         [
-            'text' => 'main.dashboard',
-            'route' => 'dashboard',
-            'icon' => 'fas fa-home',
-            'permission' => null,
+            'text' => 'main.dashboard', // Edit from lang/*/main.php
+            'url' => 'dashboard', // Can be url or route
+            'icon' => 'fas fa-home', // Icon from fontAwesome
+            'permission' => null, // Set permission_system before using
         ],
         [
             'text' => 'main.level1',
-            'route' => null,
             'icon' => 'fas fa-circle-fill',
             'submenu' => [
                 [
                     'text' => 'main.level2',
-                    'route' => null,
                     'icon' => 'fas fa-circle',
                 ],
                 [
                     'text' => 'main.level2',
-                    'route' => null,
                     'icon' => 'fas fa-circle',
                 ],
             ],
@@ -230,7 +228,7 @@ return [
         ],
         [
             'text' => 'main.another_link',
-            'route' => 'dashboard',
+            'url' => 'dashboard',
             'icon' => 'fas fa-link',
             'permission' => null,
         ],

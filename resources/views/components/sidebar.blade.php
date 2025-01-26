@@ -3,7 +3,8 @@
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
-        <a class='brand-link logo-switch' href='{{ route(config('admlte.dashboard_url')) }}'>
+        <a class='brand-link logo-switch'
+            href='{{ config('admlte.use_route_url') ? route(config('admlte.dashboard_url')) : url(config('admlte.dashboard_url')) }}'>
             <!--begin::Brand Image Small-->
             <img src="{{ asset(config('admlte.logo_img')) }}" alt="{{ config('admlte.logo_img_alt') }}"
                 class="{{ config('admlte.logo_img_class', 'brand-image-xl') }} logo-xs opacity-75 shadow" />

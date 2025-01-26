@@ -1,9 +1,19 @@
 @extends('admlte::master', ['auth_type' => 'login'])
 @section('title', __('admlte::main.register'))
 
-@php($login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login'))
-@php($register_url = View::getSection('register_url') ?? config('admlte.register_url', 'register'))
+@php
+    $login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login');
+    $register_url = View::getSection('register_url') ?? config('admlte.register_url', 'register');
 
+    if (config('admlte.use_route_url', false)) {
+        $login_url = $login_url ? route($login_url) : '';
+        $register_url = $register_url ? route($register_url) : '';
+    } else {
+        $login_url = $login_url ? url($login_url) : '';
+        $register_url = $register_url ? url($register_url) : '';
+    }
+
+@endphp
 
 @section('body')
     <div class="register-box">
@@ -16,7 +26,7 @@
             </div>
             <div class="card-body register-card-body">
                 <p class="register-box-msg">{{ __('admlte::main.register_hint') }}</p>
-                <form action="{{ route($register_url) }}" method="post">
+                <form action="{{ $register_url }}" method="post">
                     @csrf
                     <div class="input-group mb-1">
                         <div class="form-floating">
@@ -99,8 +109,8 @@
                 </div> --}}
                 <!-- /.social-auth-links -->
                 <p class="mt-3">
-                    <a class='link-primary text-center'
-                        href='{{ route($login_url) }}'>{{ __('admlte::main.already_signed') }} </a>
+                    <a class='link-primary text-center' href='{{ $login_url }}'>{{ __('admlte::main.already_signed') }}
+                    </a>
                 </p>
             </div>
             <!-- /.register-card-body -->

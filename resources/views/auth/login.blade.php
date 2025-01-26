@@ -1,9 +1,23 @@
 @extends('admlte::master', ['auth_type' => 'login'])
 @section('title', __('admlte::main.sign_in'))
 
-@php($login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login'))
-@php($register_url = View::getSection('register_url') ?? config('admlte.register_url', 'register'))
-@php($password_reset_url = View::getSection('password_reset_url') ?? config('admlte.password_reset_url', 'password/reset'))
+@php
+    $login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login');
+    $register_url = View::getSection('register_url') ?? config('admlte.register_url', 'register');
+    $password_reset_url =
+        View::getSection('password_reset_url') ?? config('admlte.password_reset_url', 'password/reset');
+
+    if (config('admlte.use_route_url', false)) {
+        $login_url = $login_url ? route($login_url) : '';
+        $register_url = $register_url ? route($register_url) : '';
+        $password_reset_url = $password_reset_url ? route($password_reset_url) : '';
+    } else {
+        $login_url = $login_url ? url($login_url) : '';
+        $register_url = $register_url ? url($register_url) : '';
+        $password_reset_url = $password_reset_url ? url($password_reset_url) : '';
+    }
+
+@endphp
 
 
 @section('body')
@@ -18,7 +32,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">{{ __('admlte::main.sign_in_hint') }}</p>
 
-                <form action="{{ route($login_url) }}" method="post">
+                <form action="{{ $login_url }}" method="post">
                     @csrf
                     <div class="input-group mb-1">
                         <div class="form-floating">
@@ -80,12 +94,11 @@
                 </div>
                 <!-- /.social-auth-links --> --}}
                 @if ($password_reset_url)
-                    <p class="mt-3"><a
-                            href="{{ route($password_reset_url) }}">{{ __('admlte::main.forgot_password') }}</a></p>
+                    <p class="mt-3"><a href="{{ $password_reset_url }}">{{ __('admlte::main.forgot_password') }}</a></p>
                 @endif
                 @if ($register_url)
                     <p class="mt-3">
-                        <a class='text-center' href='{{ route($register_url) }}'> {{ __('admlte::main.register') }} </a>
+                        <a class='text-center' href='{{ $register_url }}'> {{ __('admlte::main.register') }} </a>
                     </p>
                 @endif
             </div>

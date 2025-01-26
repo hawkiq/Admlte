@@ -2,8 +2,8 @@
     <li class="nav-header">{{ __('admlte::' . $item['text'], [], 'admlte') }}</li>
 @else
     <li class="nav-item {{ isset($item['submenu']) ? 'has-treeview' : '' }}">
-        <a href="{{ $item['route'] ? route($item['route']) : '#' }}"
-            class="nav-link {{ request()->routeIs($item['route']) ? 'active' : '' }}"
+        <a href="{{ $item['url'] ?? (isset($item['route']) ? route($item['route']) : '#') }}"
+            class="nav-link {{ isset($item['route']) && request()->routeIs($item['route']) ? 'active' : '' }}"
             @if (config('admlte.livewire')) wire:navigate @endif>
             <i class="nav-icon {{ $item['icon'] }}"></i>
             <p>
