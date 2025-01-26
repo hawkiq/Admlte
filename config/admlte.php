@@ -214,6 +214,7 @@ return [
         [
             'text' => 'main.level1',
             'icon' => 'fas fa-circle-fill',
+            'permission' => null,
             'submenu' => [
                 [
                     'text' => 'main.level2',
@@ -224,7 +225,6 @@ return [
                     'icon' => 'fas fa-circle',
                 ],
             ],
-            'permission' => null,
         ],
         [
             'text' => 'main.another_link',
@@ -236,22 +236,43 @@ return [
     ],
 
     'navbar' => [
+        'full_screen_widget' => true,
         'items' => [
             [
-                'text' => 'main.dashboard',
-                'route' => 'dashboard',
-                'class' => 'active',
+                'text' => 'main.level1',
+                //'url' => 'dashboard',
+                //'location' => 'right', // Location for Link in Navbar
                 'target' => '_blank',
-                'icon' => 'fas fa-home',
-                'icon_color' => 'danger',
+                'icon' => 'fas fa-globe',
+                'icon_color' => 'text-danger',
                 'label' => 'label',
-                'label_color' => 'warning',
-                'submenu' => [],
+                'label_color' => 'bg-danger',
                 'permission' => null,
+                'submenu' => [
+                    [
+                        'text' => 'main.level2',
+                        'secondary_text' => 'Secondary Text',
+                        'url' => 'dashboard',
+                        'target' => '_blank',
+                        'icon' => 'fas fa-flag',
+                        'icon_color' => 'text-success',
+                        'permission' => null,
+                    ],
+                    [
+                        'type' => 'seperator',
+                    ],
+                    [
+                        'text' => 'main.level2',
+                        'secondary_text' => 'Secondary Text',
+                        'url' => 'dashboard',
+                        'target' => '_blank',
+                        'icon' => 'fas fa-flag',
+                        'icon_color' => 'text-warning',
+                        'permission' => null,
+                    ],
+                ],
             ],
         ],
-        'full_screen_widget' => true,
-
     ],
 
 
