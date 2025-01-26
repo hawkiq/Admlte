@@ -231,6 +231,7 @@ return [
             'url' => 'dashboard',
             'icon' => 'fas fa-link',
             'permission' => null,
+            'target' => '_blank',
         ],
     ],
 
