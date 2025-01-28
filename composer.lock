@@ -4,62 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e006b3e56968e3061e68af6e40432b99",
+    "content-hash": "f09c425ee64a33d989be51ff5259e97e",
     "packages": [
-        {
-            "name": "almasaeed2010/adminlte",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
-                "reference": "199ca8a765c1ca3cc6e79223d7e8c95841e38702"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/199ca8a765c1ca3cc6e79223d7e8c95841e38702",
-                "reference": "199ca8a765c1ca3cc6e79223d7e8c95841e38702",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Colorlib"
-                }
-            ],
-            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
-            "homepage": "https://adminlte.io/",
-            "keywords": [
-                "JS",
-                "admin",
-                "back-end",
-                "css",
-                "less",
-                "responsive",
-                "template",
-                "theme",
-                "web"
-            ],
-            "support": {
-                "issues": "https://github.com/ColorlibHQ/AdminLTE/issues",
-                "source": "https://github.com/ColorlibHQ/AdminLTE/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/daniel007in",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/danny007in",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-01-24T12:06:55+00:00"
-        },
         {
             "name": "components/font-awesome",
             "version": "6.5.2",
@@ -149,6 +95,59 @@
             "time": "2023-09-22T01:43:46+00:00"
         },
         {
+            "name": "hawkiq/adminltev4",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hawkiq/AdminLTEv4.git",
+                "reference": "a7e8cdc391e6725b4b1aafa52262a31ed433d565"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hawkiq/AdminLTEv4/zipball/a7e8cdc391e6725b4b1aafa52262a31ed433d565",
+                "reference": "a7e8cdc391e6725b4b1aafa52262a31ed433d565",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "hawkiq"
+                }
+            ],
+            "description": "AdminLTE v4 - admin control panel and dashboard that's based on Bootstrap 5",
+            "homepage": "https://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/hawkiq/AdminLTEv4/issues",
+                "source": "https://github.com/hawkiq/AdminLTEv4/tree/4.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/daniel007in",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/danny007in",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-28T12:10:32+00:00"
+        },
+        {
             "name": "twbs/bootstrap",
             "version": "v5.3.3",
             "source": {
@@ -200,21 +199,12 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "package": "almasaeed2010/adminlte",
-            "version": "9999999-dev",
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "almasaeed2010/adminlte": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

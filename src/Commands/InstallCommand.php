@@ -104,7 +104,7 @@ class InstallCommand extends Command
         ]);
 
         // Paths
-        $adminLteSource = base_path('vendor/almasaeed2010/adminlte/dist');
+        $adminLteSource = base_path('vendor/hawkiq/adminltev4/dist');
         $bootstrapSource = base_path('vendor/twbs/bootstrap/dist');
         $jquerySource = base_path('vendor/components/jquery');
         $fontawesomeSource = base_path('vendor/components/font-awesome');

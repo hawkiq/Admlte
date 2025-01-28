@@ -1,5 +1,7 @@
 # Hawkiq AdmLTE Package
 
+[![Packagist](https://img.shields.io/packagist/v/hawkiq/admlte.svg)](https://packagist.org/packages/hawkiq/admlte)
+
 - Warning : This Package is at very early phase of development using it in production might not a good idea use at your own risk.
 - This Package Heavely Inspired by [Laravel-AdminLTE](https://github.com/jeroennoten/Laravel-AdminLTE) for AdminLTEv3, I used thier Components with few modifications to make it suitable for AdminLTEv4.
 ---
@@ -14,13 +16,15 @@ Follow these steps to install and set up the Hawkiq AdmLTE package:
 
 ### Step 1: Require the Package
 
-Note : This package used an expermintal AdminLTE V4 so it wont be installed on Laravel project unless you mark `"minimum-stability"` to `"dev"` in `composer.json`
+<del>Note : This package used an expermintal AdminLTE V4 so it wont be installed on Laravel project unless you mark `"minimum-stability"` to `"dev"` in `composer.json`</del>
 
 ```json
 "minimum-stability": "dev",
 "prefer-stable": true
 ```
-after you change  Add the package to your Laravel project via Composer:
+<del>after you change</del>
+
+Add the package to your Laravel project via Composer:
 
 ```bash
 composer require hawkiq/admlte
