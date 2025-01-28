@@ -12,7 +12,7 @@
         @endisset
     </a>
     @if (isset($item['submenu']) && count($item['submenu']) > 0)
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-start">
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
             @foreach ($item['submenu'] as $subItem)
                 @if (isset($subItem['type']) && $subItem['type'] === 'seperator')
                     <div class="dropdown-divider"></div>

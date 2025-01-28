@@ -1,7 +1,8 @@
 @php($logout_url = View::getSection('logout_url') ?? config('admlte.logout_url', 'logout'))
 @php($logout_url = $logout_url ? route($logout_url) : '')
 <!--begin::Header-->
-<nav class="app-header navbar navbar-expand bg-body">
+<nav class="app-header navbar navbar-expand {{ config('admlte.classes_navbar') }}"
+    data-bs-theme="{{ config('admlte.navbar_data_bs_theme') }}">
     <!--begin::Container-->
     <div class="container-fluid">
         <!--begin::Start Navbar Links-->
@@ -82,7 +83,7 @@
                         <!--end::User Image-->
                         <!--begin::Menu Footer-->
                         <li class="user-footer">
-                            <a class="btn btn-default btn-flat float-right" href="#"
+                            <a class="float-right btn btn-default btn-flat" href="#"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa fa-fw fa-power-off text-red"></i>
                                 {{ __('admlte::main.log_out') }}

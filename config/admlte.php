@@ -111,16 +111,22 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can change the look and behavior of the admin panel.
-    |
+    | For sidebar,Navbar classes you can choose any Bootstrap 5 classes
+    | https://getbootstrap.com/docs/5.3/utilities/background/
     |
     */
 
+    // Auth Card Classes
     'auth_card_color' => 'card-success',
     'auth_card_fill' => false,
     'auth_card_fill_class' => '', // to make it work auth_card_fill should be true // text-bg-primary
     'auth_card_btn_color' => 'btn-outline-success',
+    // Sidebar Classes
     'data_bs_theme' => 'dark',
     'classes_sidebar' => 'bg-body-secondary shadow-lg',
+    // Navbar Classes
+    'navbar_data_bs_theme' => 'light',
+    'classes_navbar' => 'bg-body shadow-lg',
 
     /*
     |--------------------------------------------------------------------------
