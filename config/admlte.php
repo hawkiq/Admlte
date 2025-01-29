@@ -105,6 +105,22 @@ return [
     'usermenu_header' => false,
     'usermenu_header_class' => 'text-bg-primary',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Layout
+    |--------------------------------------------------------------------------
+    |
+    | This Will control how dashboard should be viewed.
+    |
+    |
+    */
+    'fixed_header' => false,
+    'fixed_footer' => false,
+    'sidebar_minimized' => false,
+    'layout_fixed' => true,
+
+
     /*
     |--------------------------------------------------------------------------
     | Admin Panel Classes

@@ -65,9 +65,20 @@
 </head>
 <!--end::Head-->
 <!--begin::Body-->
+@php
+    $classes = [
+        'layout-fixed' => config('admlte.layout_fixed'),
+        'fixed-header' => config('admlte.fixed_header'),
+        'fixed-footer' => config('admlte.fixed_footer'),
+        'sidebar-collapse' => config('admlte.sidebar_minimized'),
+        'login-page bg-secondary' => isset($auth_type) && $auth_type == 'login',
+        'sidebar-expand-lg sidebar-mini' => !(isset($auth_type) && $auth_type == 'login'),
+    ];
 
-<body
-    class="{{ isset($auth_type) && $auth_type == 'login' ? 'login-page bg-secondary' : 'sidebar-expand-lg sidebar-mini' }} bg-body-tertiary">
+    $classList = array_filter($classes, fn($value) => $value);
+@endphp
+
+<body class="{{ implode(' ', array_keys($classList)) }} bg-body-tertiary">
 
     @yield('body')
 
