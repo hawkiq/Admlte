@@ -2,7 +2,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/hawkiq/admlte.svg)](https://packagist.org/packages/hawkiq/admlte)
 
-- Warning : This Package is at very early phase of development using it in production might not a good idea use at your own risk.
+
 - This Package Heavely Inspired by [Laravel-AdminLTE](https://github.com/jeroennoten/Laravel-AdminLTE) for AdminLTEv3, I used thier Components with few modifications to make it suitable for AdminLTEv4.
 ---
 
@@ -15,14 +15,6 @@ Hawkiq AdmLTE is a Laravel package designed for seamless integration of the Admi
 Follow these steps to install and set up the Hawkiq AdmLTE package:
 
 ### Step 1: Require the Package
-
-<del>Note : This package used an expermintal AdminLTE V4 so it wont be installed on Laravel project unless you mark `"minimum-stability"` to `"dev"` in `composer.json`</del>
-
-```json
-"minimum-stability": "dev",
-"prefer-stable": true
-```
-<del>after you change</del>
 
 Add the package to your Laravel project via Composer:
 
@@ -102,7 +94,7 @@ To use the package's layout, extend the base layout in your Blade files:
 ```blade
 @extends('admlte::page')
 ```
-want to include auth layout just use AdmLTE auth layouts:
+If you want to include auth layout just use AdmLTE auth layouts:
 
 #### for login page
 ```blade

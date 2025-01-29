@@ -17,22 +17,17 @@
                 <div class="col-12">
 
                     @if (config('admlte.use_card.enabled'))
-                        <div
-                            class="card @if (config('admlte.use_card.is_outline')) card-outline @endif {{ config('admlte.use_card.color') }} @if (config('admlte.use_card.fill_color')) {{ config('admlte.use_card.fill_color') }} @endif">
-                            <div class="card-header">
-                                <h3 class="card-title">@yield('title')</h3>
-                                <div class="card-tools">
-                                    @yield('card_tools')
-                                </div>
-                                <!-- /.card-tools -->
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                @yield('content')
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
+                        <x-admlte-card
+                            title="{{ !config('admlte.use_card.is_outline') ? trim(View::yieldContent('title')) : null }}"
+                            theme="{{ config('admlte.use_card.color') }}"
+                            theme-mode="{{ config('admlte.use_card.is_outline') ? 'outline' : (config('admlte.use_card.fill_color') ? 'full' : '') }}">
+
+                            <x-slot name="toolsSlot">
+                                @yield('card_tools')
+                            </x-slot>
+
+                            @yield('content')
+                        </x-admlte-card>
                     @else
                         @yield('content')
                     @endif

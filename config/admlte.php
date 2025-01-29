@@ -189,9 +189,9 @@ return [
     */
     'use_card' => [
         'enabled' => true,
-        'is_outline' => true,
-        'color' => 'card-success',
-        'fill_color' => null, // can use 'text-bg-*'
+        'is_outline' => true, // If this set to false title header will appear.
+        'color' => 'success', // primary - success - warning - danger.
+        'fill_color' => false,
     ],
 
 
