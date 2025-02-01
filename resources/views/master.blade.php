@@ -33,18 +33,17 @@
     <!--end::Fonts-->
 
     @if (config('admlte.use_ico'))
-        <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('vendor/admlte/favicon/favicon.ico') }}" />
     @elseif(config('admlte.use_full'))
         @include('admlte::partials.favicons')
     @endif
 
-    @if (config('admlte.filament'))
-        <!-- Filament Styles -->
-        @filamentStyles
-    @endif
-
     @if (config('admlte.vite'))
         @vite('resources/css/app.css')
+        @if (config('admlte.filament'))
+            <!-- Filament Styles -->
+            @filamentStyles
+        @endif
     @else
         @include('admlte::partials.styles')
     @endif
@@ -82,13 +81,12 @@
 
     @yield('body')
 
-    @if (config('admlte.filament'))
-        <!-- Filament Scripts -->
-        @filamentScripts
-    @endif
-
     @if (config('admlte.vite'))
         @vite('resources/js/app.js')
+        @if (config('admlte.filament'))
+            <!-- Filament Scripts -->
+            @filamentScripts
+        @endif
     @else
         @include('admlte::partials.scripts')
     @endif

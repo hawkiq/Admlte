@@ -116,7 +116,62 @@ php artisan admlte::install --only=views
 - Publish customizable views to `resources/views/vendor/admlte`.
 
 ---
+# Using with Vite
+if you prefer to Use asset bundling using vite you have to make few adjestments to your project.
+No need to install more packages just small change to your `vite.config.js` file.
+add this 
+```js
+import path from "path";
 
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ["resources/css/app.css", "resources/js/app.js"],
+            refresh: true,
+        }),
+    ],
+    resolve: { // Add this block resolve
+        alias: {
+            "@vendor": path.resolve(__dirname, "public/vendor"),
+        },
+    },
+});
+
+```
+
+then go to resources folder in your project edit `app.css` and `app.js` .
+
+app.css
+
+```css
+@import "@vendor/adminlte/css/adminlte.min.css";
+@import "@vendor/font-awesome/css/all.min.css";
+```
+app.js
+```js
+import "@vendor/jquery/jquery.min.js"; // Add this if You want to use jquery
+import "@vendor/bootstrap/js/bootstrap.bundle.min.js";
+import "@vendor/adminlte/js/adminlte.js";
+
+```
+
+then run command `npm run dev` , dont forget to activate vite option in `config/admlte.php`
+
+```php
+    /*
+    |--------------------------------------------------------------------------
+    | Assets Bundling ( Experimental )
+    |--------------------------------------------------------------------------
+    |
+    | Default behavouir is assets from public vendor as files But If you prefer.
+    | Using vite bundling you can mark this option as true.notice this is just 
+    | Test feature done during testing filament So it might works as you desire .
+    |
+    */
+
+    'vite' => true,
+
+```
 # Widgets
 I've created few widget for easy use in your project, I'll try to make more in near future. all widgets use bootstrap 5 color names ( primary - success - danger - warning - light - dark - secondary ), till now there are no AdminLTE colors.
 
