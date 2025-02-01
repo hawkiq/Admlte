@@ -172,6 +172,71 @@ then run command `npm run dev` , dont forget to activate vite option in `config/
     'vite' => true,
 
 ```
+
+# Plugins
+if you wish to integrate js plugins into your project you can follow below tutorial. we will test this using Summernote WYSIWYG text editor.
+first download combiled css,js from their official website https://summernote.org/getting-started/
+extract files into public folder for example `vendor/summernote`.
+open `config/admlte.php` and edit Plugins section, add Summernote for it like this
+
+```php
+
+'plugins' => [
+    /// *** Other Plugins
+    'Summernote' => [
+        'active' => false,
+        'files' => [
+            [
+                'type' => 'css',
+                'asset' => true, // Set this to true if you host files (Optional)
+                'location' => 'vendor/summernote/summernote-lite.css',
+            ],
+            [
+                'type' => 'js',
+                'asset' => true,
+                'location' => 'vendor/summernote/summernote-lite.js',
+            ],
+        ],
+    ],
+],
+
+```
+
+Last step is to activate Plugin in your page By including it
+
+```php
+
+@extends('admlte::page')
+@section('plugins.Summernote', true)
+
+@section('content')
+    <div class="row-12">
+        <div class="md-12">
+            <div id="summernote"></div>
+        </div>
+    </div>
+@endsection
+
+@push('js')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Hello Artisans from AdmLTE Dashboard',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
+@endpush
+
+
+```
+and thats it 😊
+- Remember if you used Vite you should import files into app.css. app.js 
+```css
+@import "@vendor/summernote/summernote-lite.css";
+```
+```js
+import "@vendor/summernote/summernote-lite.js";
+```
 # Widgets
 I've created few widget for easy use in your project, I'll try to make more in near future. all widgets use bootstrap 5 color names ( primary - success - danger - warning - light - dark - secondary ), till now there are no AdminLTE colors.
 
