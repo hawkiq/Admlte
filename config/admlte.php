@@ -363,6 +363,8 @@ return [
     */
 
     'vite' => false,
+    'vite_css' => 'resources/css/app.css',
+    'vite_js' => 'resources/js/app.js',
 
     /*
     |--------------------------------------------------------------------------

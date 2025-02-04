@@ -39,7 +39,7 @@
     @endif
 
     @if (config('admlte.vite'))
-        @vite('resources/css/app.css')
+        @vite(config('admlte.vite_css'))
         @if (config('admlte.filament'))
             <!-- Filament Styles -->
             @filamentStyles
@@ -82,7 +82,7 @@
     @yield('body')
 
     @if (config('admlte.vite'))
-        @vite('resources/js/app.js')
+        @vite(config('admlte.vite_js'))
         @if (config('admlte.filament'))
             <!-- Filament Scripts -->
             @filamentScripts

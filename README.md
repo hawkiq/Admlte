@@ -111,7 +111,7 @@ If you want to include auth layout just use AdmLTE auth layouts:
 # Customizing Views
 If you need to customize views,
 ```bash
-php artisan admlte::install --only=views
+php artisan admlte:install --only=views
 ```
 - Publish customizable views to `resources/views/vendor/admlte`.
 
@@ -173,6 +173,104 @@ then run command `npm run dev` , dont forget to activate vite option in `config/
 
 ```
 
+## Add new colors
+what if you like to add new colors for Adminlte library like (purple,lime,indigo etc...) you can do this by using vite just add these parameters and it will works perfectly ( this approch is temprorary wait until adminlte release their final version).
+
+```js
+import path from "path";
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ["resources/css/app.scss", "resources/js/app.js"],// change app.css to app.scss
+            refresh: true,
+        }),
+    ],
+    resolve: {
+        alias: {
+            "@vendor": path.resolve(__dirname, "public/vendor"),
+            "@adminlte": path.resolve(
+                __dirname,
+                "vendor/hawkiq/adminltev4/src/scss"
+            ), // Add this Line
+        },
+    },
+});
+
+
+```
+in `app.css` add 
+```css
+@import "@vendor/font-awesome/css/all.min.css";
+```
+Create file in `resources/css` called `app.scss`
+```scss
+@import 'app.css';
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$custom-colors: (
+    "purple": #6f42c1,
+    "teal": #20c997,
+    "orange": #fd7e14,
+    "pink": #d63384,
+    "lime": #cddc39,
+    "cyan": #17a2b8,
+    "brown": #795548,
+    "indigo": #6610f2
+    // add more colors if you like
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "@adminlte/adminlte.scss";
+
+@each $color, $value in $custom-colors {
+    .bg-#{$color} {
+        background-color: $value !important;
+    }
+
+    .text-#{$color} {
+        color: $value !important;
+    }
+
+    .btn-#{$color} {
+        background-color: $value;
+        color: white;
+
+        &:hover {
+            background-color: darken($value, 10%);
+        }
+    }
+}
+
+```
+
+Final step is change vite config to app.scss
+```php
+
+    /*
+    |--------------------------------------------------------------------------
+    | Assets Bundling ( Experimental )
+    |--------------------------------------------------------------------------
+    |
+    | Default behavouir is assets from public vendor as files But If you prefer.
+    | Using vite bundling you can mark this option as true.notice this is just 
+    | Test feature done during testing filament So it might works as you desire .
+    |
+    */
+
+    'vite' => true,
+    'vite_css' => 'resources/css/app.scss',
+    'vite_js' => 'resources/js/app.js',
+
+```
+
+app.js still same as before step
+```js
+import "@vendor/jquery/jquery.min.js";
+import "@vendor/bootstrap/js/bootstrap.bundle.min.js";
+import "@vendor/adminlte/js/adminlte.js";
+```
 # Plugins
 if you wish to integrate js plugins into your project you can follow below tutorial. we will test this using Summernote WYSIWYG text editor.
 first download combiled css,js from their official website https://summernote.org/getting-started/

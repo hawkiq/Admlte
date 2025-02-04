@@ -5,7 +5,7 @@
         <a href="{{ $item['url'] ?? (isset($item['route']) ? route($item['route']) : '#') }}"
             @isset($item['target']) target="{{ $item['target'] }}"@endisset
             class="nav-link {{ isset($item['route']) && request()->routeIs($item['route']) ? 'active' : '' }}"
-            @if (config('admlte.livewire')) wire:navigate @endif>
+            @if ((config('admlte.livewire') && isset($item['url'])) || isset($item['route'])) wire:navigate @endif>
             <i class="nav-icon {{ $item['icon'] }}"></i>
             <p>
                 {{ admlte_translate($item['text']) }}
