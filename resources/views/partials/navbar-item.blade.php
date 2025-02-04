@@ -5,7 +5,7 @@
         @isset($item['target']) target="{{ $item['target'] }}"@endisset class="nav-link">
         @isset($item['icon'])
             <i class="fas fa-fw {{ $item['icon'] }} {{ isset($item['icon_color']) ? $item['icon_color'] : '' }}"></i>
-            {{ __('admlte::' . $item['text'], [], 'admlte') }}
+            {{ admlte_translate($item['text']) }}
             @endisset @isset($item['label'])
             <span
                 class="badge rounded-pill {{ isset($item['label_color']) ? $item['label_color'] : 'text-bg-danger' }}">{{ $item['label'] }}</span>
@@ -21,9 +21,10 @@
                         class="dropdown-item">
                         <i
                             class="fas me-2 {{ isset($subItem['icon']) ? $subItem['icon'] : '' }} {{ isset($subItem['icon_color']) ? $subItem['icon_color'] : '' }}"></i>
-                        {{ __('admlte::' . $subItem['text']) }}
+                        {{ admlte_translate($subItem['text']) }}
                         @isset($subItem['secondary_text'])
-                            <span class="float-end text-secondary fs-7">{{ $subItem['secondary_text'] }}</span>
+                            <span
+                                class="float-end text-secondary fs-7">{{ admlte_translate($subItem['secondary_text']) }}</span>
                         @endisset
                     </a>
                 @endif

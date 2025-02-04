@@ -224,32 +224,32 @@ return [
     'sidebar' => [
         [
             'type' => 'header',
-            'text' => 'main.navigation',
+            'text' => 'navigation',
             'permission' => null,
         ],
         [
-            'text' => 'main.dashboard', // Edit from lang/*/main.php
+            'text' => 'dashboard', // Edit from lang/*/main.php
             'url' => 'dashboard', // Can be url or route
             'icon' => 'fas fa-home', // Icon from fontAwesome
             'permission' => null, // Set permission_system before using
         ],
         [
-            'text' => 'main.level1',
+            'text' => 'level1',
             'icon' => 'fas fa-circle-fill',
             'permission' => null,
             'submenu' => [
                 [
-                    'text' => 'main.level2',
+                    'text' => 'level2',
                     'icon' => 'fas fa-circle',
                 ],
                 [
-                    'text' => 'main.level2',
+                    'text' => 'level2',
                     'icon' => 'fas fa-circle',
                 ],
             ],
         ],
         [
-            'text' => 'main.another_link',
+            'text' => 'another_link',
             'url' => 'dashboard',
             'icon' => 'fas fa-link',
             'permission' => null,
@@ -261,9 +261,9 @@ return [
         'full_screen_widget' => true,
         'items' => [
             [
-                'text' => 'main.level1',
+                'text' => 'level1',
                 //'url' => 'dashboard',
-                //'location' => 'right', // Location for Link in Navbar
+                'location' => 'right', // Location for Link in Navbar
                 'target' => '_blank',
                 'icon' => 'fas fa-globe',
                 'icon_color' => 'text-danger',
@@ -272,7 +272,7 @@ return [
                 'permission' => null,
                 'submenu' => [
                     [
-                        'text' => 'main.level2',
+                        'text' => 'level2',
                         'secondary_text' => 'Secondary Text',
                         'url' => 'dashboard',
                         'target' => '_blank',
@@ -284,7 +284,7 @@ return [
                         'type' => 'seperator',
                     ],
                     [
-                        'text' => 'main.level2',
+                        'text' => 'level2',
                         'secondary_text' => 'Secondary Text',
                         'url' => 'dashboard',
                         'target' => '_blank',

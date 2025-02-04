@@ -1,5 +1,5 @@
 @extends('admlte::master', ['auth_type' => 'login'])
-@section('title', __('admlte::main.sign_in'))
+@section('title', admlte_translate('sign_in'))
 
 @php
     $login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login');
@@ -30,7 +30,7 @@
                         class="img-fluid" /> </h2>
             </div>
             <div class="card-body login-card-body">
-                <p class="login-box-msg">{{ __('admlte::main.sign_in_hint') }}</p>
+                <p class="login-box-msg">{{ admlte_translate('sign_in_hint') }}</p>
 
                 <form action="{{ $login_url }}" method="post">
                     @csrf
@@ -39,7 +39,7 @@
                             <input id="loginEmail" name="email" type="email"
                                 class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
                                 placeholder="" />
-                            <label for="loginEmail">{{ __('admlte::main.email') }}</label>
+                            <label for="loginEmail">{{ admlte_translate('email') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-envelope"></span></div>
                         @error('email')
@@ -52,7 +52,7 @@
                         <div class="form-floating">
                             <input id="loginPassword" name="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" placeholder="" />
-                            <label for="loginPassword">{{ __('admlte::main.password') }}</label>
+                            <label for="loginPassword">{{ admlte_translate('password') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-lock"></span></div>
                         @error('password')
@@ -68,7 +68,7 @@
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                     {{ old('remember') ? 'checked' : '' }} />
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    {{ __('admlte::main.remember_me') }}
+                                    {{ admlte_translate('remember_me') }}
                                 </label>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                         <div class="col-12 mt-3">
                             <div class="d-grid gap-2">
                                 <button type="submit"
-                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ __('admlte::main.sign_in') }}</button>
+                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ admlte_translate('sign_in') }}</button>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -94,11 +94,12 @@
                 </div>
                 <!-- /.social-auth-links --> --}}
                 @if ($password_reset_url)
-                    <p class="mt-3"><a href="{{ $password_reset_url }}">{{ __('admlte::main.forgot_password') }}</a></p>
+                    <p class="mt-3"><a href="{{ $password_reset_url }}">{{ admlte_translate('forgot_password') }}</a>
+                    </p>
                 @endif
                 @if ($register_url)
                     <p class="mt-3">
-                        <a class='text-center' href='{{ $register_url }}'> {{ __('admlte::main.register') }} </a>
+                        <a class='text-center' href='{{ $register_url }}'> {{ admlte_translate('register') }} </a>
                     </p>
                 @endif
             </div>

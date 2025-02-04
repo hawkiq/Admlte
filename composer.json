@@ -4,6 +4,9 @@
     "type": "package",
     "license": "MIT",
     "autoload": {
+        "files": [
+            "src/Helpers.php"
+        ],
         "psr-4": {
             "Hawkiq\\Admlte\\": "src/"
         }

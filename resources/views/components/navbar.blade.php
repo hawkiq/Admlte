@@ -86,7 +86,7 @@
                             <a class="float-right btn btn-default btn-flat" href="#"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa fa-fw fa-power-off text-red"></i>
-                                {{ __('admlte::main.log_out') }}
+                                {{ admlte_translate('log_out') }}
                             </a>
                             <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
                                 @if (config('admlte.logout_method'))

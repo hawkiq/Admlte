@@ -1,5 +1,5 @@
 @if (isset($item['type']) && $item['type'] === 'header')
-    <li class="nav-header">{{ __('admlte::' . $item['text'], [], 'admlte') }}</li>
+    <li class="nav-header">{{ admlte_translate($item['text']) }}</li>
 @else
     <li class="nav-item {{ isset($item['submenu']) ? 'has-treeview' : '' }}">
         <a href="{{ $item['url'] ?? (isset($item['route']) ? route($item['route']) : '#') }}"
@@ -8,7 +8,7 @@
             @if (config('admlte.livewire')) wire:navigate @endif>
             <i class="nav-icon {{ $item['icon'] }}"></i>
             <p>
-                {{ __('admlte::' . $item['text']) }}
+                {{ admlte_translate($item['text']) }}
                 @if (isset($item['submenu']))
                     <i class="nav-arrow fas fa-chevron-right"></i>
                 @endif

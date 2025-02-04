@@ -8,7 +8,7 @@
          <div class="col-sm-6">
              <ol class="breadcrumb float-sm-end">
                  <li class="breadcrumb-item"><a
-                         href="{{ route(config('admlte.dashboard_url')) }}">{{ __('admlte::main.home') }}</a>
+                         href="{{ route(config('admlte.dashboard_url')) }}">{{ admlte_translate('home') }}</a>
                  </li>
                  <li class="breadcrumb-item active" aria-current="page">{{ Request::path() }}</li>
              </ol>

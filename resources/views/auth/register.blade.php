@@ -1,5 +1,5 @@
 @extends('admlte::master', ['auth_type' => 'login'])
-@section('title', __('admlte::main.register'))
+@section('title', admlte_translate('register'))
 
 @php
     $login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login');
@@ -25,7 +25,7 @@
                         class="img-fluid" /> </h2>
             </div>
             <div class="card-body register-card-body">
-                <p class="register-box-msg">{{ __('admlte::main.register_hint') }}</p>
+                <p class="register-box-msg">{{ admlte_translate('register_hint') }}</p>
                 <form action="{{ $register_url }}" method="post">
                     @csrf
                     <div class="input-group mb-1">
@@ -33,7 +33,7 @@
                             <input id="registerFullName" name="name" type="text"
                                 class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
                                 placeholder="" />
-                            <label for="registerFullName">{{ __('admlte::main.full_name') }}</label>
+                            <label for="registerFullName">{{ admlte_translate('full_name') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-user"></span></div>
                         @error('name')
@@ -47,7 +47,7 @@
                             <input id="registerEmail" name="email" type="email"
                                 class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
                                 placeholder="" />
-                            <label for="registerEmail">{{ __('admlte::main.email') }}</label>
+                            <label for="registerEmail">{{ admlte_translate('email') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-envelope"></span></div>
                         @error('email')
@@ -60,7 +60,7 @@
                         <div class="form-floating">
                             <input id="registerPassword" name="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" placeholder="" />
-                            <label for="registerPassword">{{ __('admlte::main.password') }}</label>
+                            <label for="registerPassword">{{ admlte_translate('password') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-lock"></span></div>
                         @error('password')
@@ -74,7 +74,7 @@
                         <div class="form-floating">
                             <input id="registerPassword" name="password_confirmation" type="password"
                                 class="form-control @error('password') is-invalid @enderror" placeholder="" />
-                            <label for="registerPassword">{{ __('admlte::main.password_confirmation') }}</label>
+                            <label for="registerPassword">{{ admlte_translate('password_confirmation') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-lock"></span></div>
                         @error('password')
@@ -91,7 +91,7 @@
                         <div class="col-12">
                             <div class="d-grid gap-2">
                                 <button type="submit"
-                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ __('admlte::main.register') }}</button>
+                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ admlte_translate('register') }}</button>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -109,7 +109,8 @@
                 </div> --}}
                 <!-- /.social-auth-links -->
                 <p class="mt-3">
-                    <a class='link-primary text-center' href='{{ $login_url }}'>{{ __('admlte::main.already_signed') }}
+                    <a class='link-primary text-center'
+                        href='{{ $login_url }}'>{{ admlte_translate('already_signed') }}
                     </a>
                 </p>
             </div>

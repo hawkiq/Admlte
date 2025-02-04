@@ -1,5 +1,5 @@
 @extends('admlte::master', ['auth_type' => 'login'])
-@section('title', __('admlte::main.forgot_password'))
+@section('title', admlte_translate('forgot_password'))
 
 @php($login_url = View::getSection('login_url') ?? config('admlte.login_url', 'login'))
 @php($password_email_url = View::getSection('password_email_url') ?? config('admlte.password_email_url', 'password/email'))
@@ -15,7 +15,7 @@
                         class="img-fluid" /> </h2>
             </div>
             <div class="card-body login-card-body">
-                <p class="login-box-msg">{{ __('admlte::main.forgot_password_hint') }}</p>
+                <p class="login-box-msg">{{ admlte_translate('forgot_password_hint') }}</p>
 
                 <form action="{{ route($password_email_url) }}" method="post">
                     @csrf
@@ -24,7 +24,7 @@
                             <input id="loginEmail" name="email" type="email"
                                 class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
                                 placeholder="" required autofocus />
-                            <label for="loginEmail">{{ __('admlte::main.email') }}</label>
+                            <label for="loginEmail">{{ admlte_translate('email') }}</label>
                         </div>
                         <div class="input-group-text"><span class="fas fa-fw fa-envelope"></span></div>
                         @error('email')
@@ -38,7 +38,7 @@
                         <div class="col-12 mt-3">
                             <div class="d-grid gap-2">
                                 <button type="submit"
-                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ __('admlte::main.email_password') }}</button>
+                                    class="btn {{ config('admlte.auth_card_btn_color', 'btn-primary') }}">{{ admlte_translate('email_password') }}</button>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -48,7 +48,7 @@
 
                 @if ($login_url)
                     <p class="mt-3">
-                        <a class='text-center' href='{{ route($login_url) }}'> {{ __('admlte::main.sign_in') }} </a>
+                        <a class='text-center' href='{{ route($login_url) }}'> {{ admlte_translate('sign_in') }} </a>
                     </p>
                 @endif
             </div>
