@@ -271,6 +271,52 @@ import "@vendor/jquery/jquery.min.js";
 import "@vendor/bootstrap/js/bootstrap.bundle.min.js";
 import "@vendor/adminlte/js/adminlte.js";
 ```
+
+# Language Selector
+You can add language selector with one click in `admlte.php` by set two options
+```php
+
+ 'navbar' => [
+        //Navbar Widgets
+        //...
+        'language_selector_widget' => true, // Set if you want to show language selector in navbar.
+```
+
+and you can add more than language in option
+
+```php
+
+    /*
+    |--------------------------------------------------------------------------
+    | App Local
+    |--------------------------------------------------------------------------
+    |
+    | List of Supported Langauges for Admin Panel.
+    | This will only set language to middleware you still have to translate
+    | project by yourself by adding phrases to main.php or your language folder.
+    |
+    |
+    */
+
+    'app_locals' => [
+        //Text => Locale Code
+        'arabic' => 'ar',
+        'english' => 'en',
+        'french' => 'fr',
+    ],
+
+```
+
+one last step you still have to add Admlte middleware to your `bootstrap/app.php` add 
+```php
+use Hawkiq\Admlte\Http\Middleware\LanguageMiddleware;
+
+->withMiddleware(function (Middleware $middleware) {
+        $middleware->append(LanguageMiddleware::class); // This will be Added only 
+    })
+
+```
+---
 # Plugins
 if you wish to integrate js plugins into your project you can follow below tutorial. we will test this using Summernote WYSIWYG text editor.
 first download combiled css,js from their official website https://summernote.org/getting-started/

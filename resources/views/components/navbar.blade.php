@@ -54,6 +54,11 @@
                     @endif
                 @endforeach
             @endif
+            @if (config('admlte.navbar.language_selector_widget'))
+                <!--begin::Language Selector -->
+                <x-admlte-lang-selector />
+                <!--end::Language Selector -->
+            @endif
             @if (config('admlte.navbar.full_screen_widget'))
                 <!--begin::Fullscreen Toggle-->
                 <li class="nav-item">

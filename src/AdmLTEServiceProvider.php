@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Hawkiq\Admlte\Commands\InstallCommand;
 use Hawkiq\Admlte\View\Components\Widget;
 use Hawkiq\Admlte\View\Components\Form;
+use Hawkiq\Admlte\View\Components\Tools;
+use Hawkiq\Admlte\Http\Middleware\LanguageMiddleware;
 
 class AdmLTEServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,10 @@ class AdmLTEServiceProvider extends ServiceProvider
         'small-box' => Widget\SmallBox::class,
     ];
 
+    protected $toolsComponents = [
+        'lang-selector' => Tools\LangSelector::class,
+    ];
+
     /**
      * Bootstrap services during the application's booting process.
      */
@@ -31,6 +37,7 @@ class AdmLTEServiceProvider extends ServiceProvider
         $this->registerPublishing();
         $this->registerTranslations();
         $this->registerViews();
+        $this->registerRoutes();
         $this->loadComponents();
     }
 
@@ -117,9 +124,21 @@ class AdmLTEServiceProvider extends ServiceProvider
 
         $components = array_merge(
             $this->formComponents,
-            $this->widgetComponents
+            $this->widgetComponents,
+            $this->toolsComponents
         );
 
         $this->loadViewComponentsAs($this->packageName, $components);
+    }
+    /**
+     * Load Routes of the package.
+     *
+     * @return void
+     */
+
+    private function registerRoutes()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->app['router']->aliasMiddleware('admlte.language', LanguageMiddleware::class);
     }
 }

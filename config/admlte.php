@@ -18,6 +18,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | App Local
+    |--------------------------------------------------------------------------
+    |
+    | List of Supported Langauges for Admin Panel.
+    | This will only set language to middleware you still have to translate
+    | project by yourself by adding phrases to main.php or your language folder.
+    |
+    | Set This if you will use Language Selector Widget in Navbar
+    */
+
+    'app_locals' => [
+        //Text => Code
+        'arabic' => 'ar',
+        'english' => 'en',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Right to left Languages
     |--------------------------------------------------------------------------
     |
@@ -258,7 +276,11 @@ return [
     ],
 
     'navbar' => [
-        'full_screen_widget' => true,
+        //Navbar Widgets
+        'full_screen_widget' => true, // Set if you want to show Fullscreen button in navbar
+        'language_selector_widget' => true, // Set if you want to show language selector in navbar.
+
+        // Navbar Links
         'items' => [
             [
                 'text' => 'level1',
