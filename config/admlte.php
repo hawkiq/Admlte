@@ -85,11 +85,16 @@ return [
     | Here you can allow or not the use of external google fonts. Disabling the
     | google fonts may be useful if your admin panel internet access is
     | restricted somehow.
-    |
+    | You have to put whole Font url with Font family name in order to work
+    | See more font at https://fonts.google.com
     |
     */
 
     'google_fonts' => true,
+    'google_fonts_english' => 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap',
+    'google_fonts_arabic' => 'https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap',
+    'font_family_english' => 'Roboto',
+    'font_family_arabic' => 'Tajawal',
 
 
     /*
@@ -278,7 +283,7 @@ return [
     'navbar' => [
         //Navbar Widgets
         'full_screen_widget' => true, // Set if you want to show Fullscreen button in navbar
-        'language_selector_widget' => true, // Set if you want to show language selector in navbar.
+        'language_selector_widget' => false, // Set if you want to show language selector in navbar.
 
         // Navbar Links
         'items' => [

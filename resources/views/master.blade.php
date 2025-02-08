@@ -20,13 +20,21 @@
     <!--end::Primary Meta Tags-->
     <!--begin::Fonts-->
     @if (config('admlte.google_fonts', true))
+        @php
+            $locale = app()->getLocale();
+            $rtlLanguages = config('admlte.rtl_languages', []);
+            $isRtl = in_array($locale, $rtlLanguages);
+            $fontUrl = config('admlte.google_fonts_' . ($isRtl ? 'arabic' : 'english'));
+            $fontFamily = config('admlte.font_family_' . ($isRtl ? 'arabic' : 'english'));
+        @endphp
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet">
+        <link href="{!! $fontUrl !!}" rel="stylesheet">
+
         <style>
             * {
-                font-family: "Roboto", serif;
+                font-family: "{{ $fontFamily }}", sans-serif;
             }
         </style>
     @endif
