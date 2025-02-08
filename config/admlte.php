@@ -99,6 +99,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Login Username
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify what will you use for Login default is email
+    | But sometimes you might prefer username to login this settings will
+    | make login via username and it will add username field to register page.
+    | Remember you should override method username() in LoginController or change
+    | Anything in RegisterControler related to username, this setting just to show
+    | Username or email in forms it has nothing to do with controllers.
+    |
+    |
+    */
+
+    'username_enabled' => true,
+
+
+    /*
+    |--------------------------------------------------------------------------
     | URLs
     |--------------------------------------------------------------------------
     |

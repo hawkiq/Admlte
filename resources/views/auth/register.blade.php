@@ -56,6 +56,22 @@
                             </div>
                         @enderror
                     </div>
+                    @if (config('admlte.username_enabled'))
+                        <div class="input-group mb-1">
+                            <div class="form-floating">
+                                <input id="registerUserName" name="username" type="text"
+                                    class="form-control @error('username') is-invalid @enderror"
+                                    value="{{ old('username') }}" placeholder="" />
+                                <label for="registerUserName">{{ admlte_translate('username') }}</label>
+                            </div>
+                            <div class="input-group-text"><span class="fas fa-fw fa-users"></span></div>
+                            @error('username')
+                                <div class="invalid-feedback d-block">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    @endif
                     <div class="input-group mb-1">
                         <div class="form-floating">
                             <input id="registerPassword" name="password" type="password"

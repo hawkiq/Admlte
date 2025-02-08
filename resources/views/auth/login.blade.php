@@ -34,20 +34,37 @@
 
                 <form action="{{ $login_url }}" method="post">
                     @csrf
-                    <div class="input-group mb-1">
-                        <div class="form-floating">
-                            <input id="loginEmail" name="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
-                                placeholder="" />
-                            <label for="loginEmail">{{ admlte_translate('email') }}</label>
-                        </div>
-                        <div class="input-group-text"><span class="fas fa-fw fa-envelope"></span></div>
-                        @error('email')
-                            <div class="invalid-feedback d-block">
-                                <strong>{{ $message }}</strong>
+                    @if (config('admlte.username_enabled'))
+                        <div class="input-group mb-1">
+                            <div class="form-floating">
+                                <input id="loginUsername" name="username" type="text"
+                                    class="form-control @error('username') is-invalid @enderror"
+                                    value="{{ old('username') }}" placeholder="" />
+                                <label for="loginUsername">{{ admlte_translate('username') }}</label>
                             </div>
-                        @enderror
-                    </div>
+                            <div class="input-group-text"><span class="fas fa-fw fa-user"></span></div>
+                            @error('username')
+                                <div class="invalid-feedback d-block">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    @else
+                        <div class="input-group mb-1">
+                            <div class="form-floating">
+                                <input id="loginEmail" name="email" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                                    placeholder="" />
+                                <label for="loginEmail">{{ admlte_translate('email') }}</label>
+                            </div>
+                            <div class="input-group-text"><span class="fas fa-fw fa-envelope"></span></div>
+                            @error('email')
+                                <div class="invalid-feedback d-block">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    @endif
                     <div class="input-group mb-1">
                         <div class="form-floating">
                             <input id="loginPassword" name="password" type="password"

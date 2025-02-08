@@ -10,11 +10,36 @@ Hawkiq AdmLTE is a Laravel package designed for seamless integration of the Admi
 
 ---
 
-## Installation
+## Table of Contents  
+
+- [Installation](#installation)  
+  - [Step 1: Require the Package](#step-1-require-the-package)  
+  - [Step 2: Publish Assets, Lang, and Configurations](#step-2-publish-assets-lang-and-configurations)  
+  - [Step 3: Replace Auth Views (Optional)](#step-3-replace-auth-views-optional)  
+- [Configuration](#configuration)  
+  - [Username Login](#username-login)  
+- [Usage](#usage)  
+  - [Include the Layout](#include-the-layout)  
+  - [Customizing Views](#customizing-views)  
+- [Using with Vite](#using-with-vite)  
+  - [Add new colors](#add-new-colors)  
+- [Language Selector](#language-selector)  
+- [Plugins](#plugins)  
+- [Widgets](#widgets)  
+  - [Card](#card)  
+  - [Info Box](#info-box)  
+  - [Small Box](#small-box)  
+  - [Alert](#alert)  
+- [Contribution](#contribution)  
+- [License](#license)  
+
+---
+
+# Installation
 
 Follow these steps to install and set up the Hawkiq AdmLTE package:
 
-### Step 1: Require the Package
+## Step 1: Require the Package
 
 Add the package to your Laravel project via Composer:
 
@@ -22,7 +47,7 @@ Add the package to your Laravel project via Composer:
 composer require hawkiq/admlte
 ```
 
-### Step 2: Publish Assets, Lang, and Configurations
+## Step 2: Publish Assets, Lang, and Configurations
 
 Run the following Artisan command to publish the package's assets,language and configuration files:
 ```bash
@@ -34,7 +59,7 @@ This will:
 - Publish the configuration file to `config/admlte.php`.
 - Publish Languages files to `lang/` or `resources/lang/`.
 
-### Step 3: Replace Auth Views ( Optional )
+## Step 3: Replace Auth Views ( Optional )
 
 If you would like to use AdminLTE Auth views you can run below command to replace views:
 
@@ -45,7 +70,7 @@ this step is safe since its taking backup in `storage` folder for current views 
 
 ---
 
-## Configuration
+# Configuration
 
 Customize the package by editing the configuration file located at:
 ```bash
@@ -84,11 +109,50 @@ return [
 ];
 ```
 
+## Username Login
+Sometimes you might prefer username to login this settings will make login via username and it will add username field to register page. Remember you should override method username() in LoginController.php or change Anything in RegisterControler related to username, this setting just to show Username or email in forms it has nothing to do with controllers.
+
+set `'username_enabled' => true,` then in `app\Http\Controllers\AuthLoginController.php` add 
+```php
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+```
+
+edit `app\Http\Controllers\Auth\RegisterController.php` 
+
+```php
+
+return Validator::make($data, [
+'name' => ['required', 'string', 'max:255'],
+'username' => ['required', 'string', 'max:255'], // << Add this to validator >>
+'phone' => ['string', 'max:255', 'unique:users'],
+'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+'password' => ['required', 'string', 'min:6', 'confirmed'],
+]);
+
+
+return User::create([
+'name' => $data['name'],
+'username' => $data['username'],// << Add this to create User Model >>
+'phone' => $data['phone'],
+'email' => $data['email'],
+'password' => Hash::make($data['password']),
+]);
+
+```
 ---
 
-## Usage
+# Usage
 
-### Include the Layout
+## Include the Layout
 To use the package's layout, extend the base layout in your Blade files:
 
 ```blade
@@ -96,13 +160,13 @@ To use the package's layout, extend the base layout in your Blade files:
 ```
 If you want to include auth layout just use AdmLTE auth layouts:
 
-#### for login page
+### for login page
 ```blade
 @extends('admlte::auth.login')
 
 ```
 
-#### for register page
+### for register page
 ```blade
 @extends('admlte::auth.register')
 
@@ -519,11 +583,11 @@ For display alerts
 
 ---
 
-## Contribution
+# Contribution
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
 ---
 
-## License
+# License
 This package is open-sourced software licensed under the [MIT license](LICENSE).
 
